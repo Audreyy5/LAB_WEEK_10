@@ -24,12 +24,10 @@ class MainActivity : AppCompatActivity() {
         val textTotal = findViewById<TextView>(R.id.text_total)
         val buttonIncrement = findViewById<Button>(R.id.button_increment)
 
-        // Observe LiveData dari ViewModel
         viewModel.total.observe(this, Observer { total ->
             textTotal.text = getString(R.string.text_total, total)
         })
 
-        // Saat tombol diklik, tambah total
         buttonIncrement.setOnClickListener {
             viewModel.incrementTotal()
         }
